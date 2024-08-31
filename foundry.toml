@@ -1,6 +1,22 @@
+# foundry.toml
 [profile.default]
 src = "src"
 out = "out"
+test = "test"
 libs = ["lib"]
+solc = '0.8.24'
 
-# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+remappings = [
+    '@chainlink/contracts-ccip=lib/ccip/contracts',
+    '@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/',
+    '@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/',
+    '@chainlink/local/=lib/chainlink-local/',
+    '@chainlink/=lib/chainlink/contracts/',
+]
+
+[rpc_endpoints]
+ethereumSepolia = "${ETHEREUM_SEPOLIA_RPC_URL}"
+arbitrumSepolia = "${ARBITRUM_SEPOLIA_RPC_URL}"
+
+solc = '0.8.20'
+evm_version = 'paris'
